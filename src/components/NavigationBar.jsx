@@ -74,23 +74,21 @@ function NavigationBar() {
                             <Nav className="me-auto my-2 my-lg-0">
                                 {input == "" &&
                                     <>
-                                        <NavDropdown title={language === "zh-CN" ? "电影列表" : language === "en-US" ? "Movie Lists" : "Film Listeleri"}>
-                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('movies', 'top_rated')} style={isClicked.movies === "top_rated" ? activeStyle : {}}>{language === "zh-CN" ? "最高评分" : language === "en-US" ? "Top Rated" : "En Fazla Oy Alan"}</NavDropdown.Item>
-                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('movies', 'popular')} style={isClicked.movies === "popular" ? activeStyle : {}}>{language === "zh-CN" ? "受欢迎" : language === "en-US" ? "Popular" : "Popüler"}</NavDropdown.Item>
-                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('movies', 'upcoming')} style={isClicked.movies === "upcoming" ? activeStyle : {}}>{language === "zh-CN" ? "即将上映" : language === "en-US" ? "Upcoming" : "Gelecek"}</NavDropdown.Item>
-                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('movies', 'now_playing')} style={isClicked.movies === "now_playing" ? activeStyle : {}}>{language === "zh-CN" ? "正在播放" : language === "en-US" ? "Now Playing" : "Gösterimdekiler"}</NavDropdown.Item>
+                                        <NavDropdown title={language === "zh-CN" ? "电影列表" : "电影列表"}>
+                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('movies', 'top_rated')} style={isClicked.movies === "top_rated" ? activeStyle : {}}>{language === "zh-CN" ? "最高评分" : "最高评分"}</NavDropdown.Item>
+                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('movies', 'popular')} style={isClicked.movies === "popular" ? activeStyle : {}}>{language === "zh-CN" ? "受欢迎" : "受欢迎"}</NavDropdown.Item>
+                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('movies', 'upcoming')} style={isClicked.movies === "upcoming" ? activeStyle : {}}>{language === "zh-CN" ? "即将上映" : "即将上映"}</NavDropdown.Item>
+                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('movies', 'now_playing')} style={isClicked.movies === "now_playing" ? activeStyle : {}}>{language === "zh-CN" ? "正在播放" : "正在播放"}</NavDropdown.Item>
                                         </NavDropdown>
 
-                                        <NavDropdown title={language === "zh-CN" ? "按IMDb评分排序" : language === "en-US" ? "Sorted By IMDb Ratings" : "IMDb Puanına Göre"}>
-                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('sortedBy', 'default')} style={isClicked.sortedBy === "default" ? activeStyle : {}}>{language === "zh-CN" ? "默认" : language === "en-US" ? "Default" : "Varsayılan"}</NavDropdown.Item>
-                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('sortedBy', 'descending')} style={isClicked.sortedBy === "descending" ? activeStyle : {}}>{language === "zh-CN" ? "降序" : language === "en-US" ? "Descending" : "Azalan"}</NavDropdown.Item>
-                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('sortedBy', 'ascending')} style={isClicked.sortedBy === "ascending" ? activeStyle : {}}>{language === "zh-CN" ? "升序" : language === "en-US" ? "Ascending" : "Artan"}</NavDropdown.Item>
+                                        <NavDropdown title={language === "zh-CN" ? "按IMDb评分排序" : "按IMDb评分排序"}>
+                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('sortedBy', 'default')} style={isClicked.sortedBy === "default" ? activeStyle : {}}>{language === "zh-CN" ? "默认" : "默认"}</NavDropdown.Item>
+                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('sortedBy', 'descending')} style={isClicked.sortedBy === "descending" ? activeStyle : {}}>{language === "zh-CN" ? "降序" : "降序"}</NavDropdown.Item>
+                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('sortedBy', 'ascending')} style={isClicked.sortedBy === "ascending" ? activeStyle : {}}>{language === "zh-CN" ? "升序" : "升序"}</NavDropdown.Item>
                                         </NavDropdown>
 
-                                        <NavDropdown title={language === "zh-CN" ? "语言" : language === "en-US" ? "Language" : "Dil"}>
-                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('language', 'en-US')} style={isClicked.language === "en-US" ? activeStyle : {}}>{language === "en-US" ? "English (en-US)" : "İngilizce (en-US)"}</NavDropdown.Item>
-                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('language', 'tr-TR')} style={isClicked.language === "tr-TR" ? activeStyle : {}}>{language === "en-US" ? "Turkish (tr-TR)" : "Türkçe (tr-TR)"}</NavDropdown.Item>
-                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('language', 'zh-CN')} style={isClicked.language === "zh-CN" ? activeStyle : {}}>{language === "zh-CN" ? "Chinese (zh-CN)" : "Çince (zh-CN)"}</NavDropdown.Item>
+                                        <NavDropdown title={language === "zh-CN" ? "语言" : "语言"}>
+                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('language', 'zh-CN')} style={isClicked.language === "zh-CN" ? activeStyle : {}}>{language === "zh-CN" ? "Chinese (zh-CN)" : "Chinese (zh-CN)"}</NavDropdown.Item>
                                         </NavDropdown>
                                     </>
                                 }
@@ -98,14 +96,14 @@ function NavigationBar() {
                             <Form className="d-flex" onSubmit={(e) => e.preventDefault()}>
                                 <Form.Control
                                     type="search"
-                                    placeholder={language === "zh-CN" ? "搜索电影" : language === "en-US" ? "Search movie" : "Film ara"}
+                                    placeholder={language === "zh-CN" ? "搜索电影" : "搜索电影"}
                                     className="input me-1"
                                     aria-label="Search"
                                     onChange={handleInputChange}
                                     value={input}
                                     spellCheck="false"
                                 />
-                                <Button className="btn btn-danger text-white" type="submit" onClick={() => dispatch(getSearchAndQuery(input))}>{language === "zh-CN" ? "搜索" : language === "en-US" ? "Search" : "Ara"}</Button>
+                                <Button className="btn btn-danger text-white" type="submit" onClick={() => dispatch(getSearchAndQuery(input))}>{language === "zh-CN" ? "搜索" : "搜索"}</Button>
                             </Form>
                         </Navbar.Collapse>
                     </>
@@ -117,4 +115,5 @@ function NavigationBar() {
 }
 
 export default NavigationBar
+
 
