@@ -21,7 +21,7 @@ function NavigationBar() {
     const [isClicked, setIsClicked] = useState({
         movies: Functions.fetchWhichMovies(),
         sortedBy: Functions.fetchSortedBy(),
-        language: Functions.fetchLanguage() || "zh-CN" // Mặc định là tiếng Trung
+        language: "zh-CN" //Functions.fetchLanguage() ||"zh-CN" // Mặc định là tiếng Trung
     })
 
     const input = useSelector((state) => state.navigationBarReducer.input)
