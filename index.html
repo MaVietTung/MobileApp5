@@ -24,16 +24,16 @@
 <body>
   <div id="root"></div>
 
-  <!-- Google Translate -->
+  <!-- Google Translate Widget (Hidden) -->
   <div id="google_translate_element" style="display: none;"></div>
 
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'zh-CN',
+        pageLanguage: 'en',               // Ngôn ngữ gốc của trang
+        includedLanguages: 'zh-CN',       // Chỉ cho phép dịch sang tiếng Trung
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
+        autoDisplay: false                // Không hiển thị widget dịch
       }, 'google_translate_element');
     }
 
@@ -43,17 +43,19 @@
       gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
       document.body.appendChild(gtScript);
 
+      // Tự động chọn ngôn ngữ Trung Quốc sau khi trang tải xong
       const interval = setInterval(() => {
         const select = document.querySelector('.goog-te-combo');
         if (select) {
-          select.value = 'zh-CN';
-          select.dispatchEvent(new Event('change'));
+          select.value = 'zh-CN';  // Chọn ngôn ngữ Trung Quốc
+          select.dispatchEvent(new Event('change'));  // Triển khai thay đổi
           clearInterval(interval);
         }
       }, 500);
     });
   </script>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
   </script>
@@ -61,3 +63,4 @@
 </body>
 
 </html>
+
