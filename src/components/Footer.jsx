@@ -6,7 +6,7 @@ function Footer() {
         <div className="container">
             <div className="text-center mt-4 py-4 d-md-flex justify-content-center gap-4">
                 <div className="text-white mb-2" style={{ marginTop: "1px" }}>
-                    © {currentYear} Hasan Yasen, All rights are reserved.
+                    © {currentYear} Mvtsoftware, All rights are reserved.
                 </div>
                 <div className="socials mb-1">
                     <a href="https://www.instagram.com/hasanyasenn/" target="_blank" className="me-2">
@@ -34,3 +34,4 @@ function Footer() {
 }
 
 export default Footer
+
