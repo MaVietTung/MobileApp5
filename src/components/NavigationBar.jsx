@@ -18,13 +18,19 @@ function NavigationBar() {
     const currentLocation = location.pathname;
     const dispatch = useDispatch();
 
+    // CHỈNH SỬA 1: Thay đổi ngôn ngữ mặc định trong state của component
     const [isClicked, setIsClicked] = useState({
         movies: Functions.fetchWhichMovies(),
         sortedBy: Functions.fetchSortedBy(),
-        language: "en-US" // Defaulting to English
+        language: "th-TH" // Đổi từ "en-US" sang "th-TH" (Tiếng Thái)
     });
 
     const input = useSelector((state) => state.navigationBarReducer.input);
+
+    // Lưu ý: Dòng code này lấy state từ Redux, nhưng nó không
+    // được dùng để khởi tạo 'isClicked.language'. 
+    // Rất có thể bạn cũng cần thay đổi initialState trong 
+    // file navigationBarSlice.js (Redux) để state mặc định là "th-TH".
     const language = useSelector((state) => state.navigationBarReducer.language);
 
     const handleOptionClick = (type, value) => {
@@ -86,7 +92,9 @@ function NavigationBar() {
                                             <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('sortedBy', 'ascending')} style={isClicked.sortedBy === "ascending" ? activeStyle : {}}>Ascending</NavDropdown.Item>
                                         </NavDropdown>
 
+                                        {/* CHỈNH SỬA 2: Thêm Tiếng Thái vào danh sách dropdown */}
                                         <NavDropdown title="Language">
+                                            <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('language', 'th-TH')} style={isClicked.language === "th-TH" ? activeStyle : {}}>Thai (th-TH)</NavDropdown.Item>
                                             <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('language', 'en-US')} style={isClicked.language === "en-US" ? activeStyle : {}}>English (en-US)</NavDropdown.Item>
                                             <NavDropdown.Item className='dropdown-item' onClick={() => handleOptionClick('language', 'zh-CN')} style={isClicked.language === "zh-CN" ? activeStyle : {}}>Chinese (zh-CN)</NavDropdown.Item>
                                         </NavDropdown>
@@ -115,3 +123,4 @@ function NavigationBar() {
 }
 
 export default NavigationBar;
+
